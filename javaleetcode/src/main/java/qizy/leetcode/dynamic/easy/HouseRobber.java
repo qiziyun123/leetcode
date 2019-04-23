@@ -1,4 +1,4 @@
-package qizy.leetcode.easy.dynamic;
+package qizy.leetcode.dynamic.easy;
 
 public class HouseRobber {
 
