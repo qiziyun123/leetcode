@@ -20,4 +20,5 @@ public class Numberof1Bits {
         }
         return count;
     }
+
 }

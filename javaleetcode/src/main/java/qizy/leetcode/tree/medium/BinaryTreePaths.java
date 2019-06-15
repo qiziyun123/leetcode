@@ -1,7 +1,9 @@
 package qizy.leetcode.tree.medium;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinaryTreePaths {
@@ -88,6 +90,33 @@ public class BinaryTreePaths {
 		}
 	}
 
+	public static List<List<Integer>> levelOrder(TreeNode root) {
+		List<List<Integer>> res = new ArrayList<List<Integer>>();
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
+        List<Integer> tlist = new ArrayList<Integer>();
+        q.add(root);
+        q.add(null);
+        while(!q.isEmpty()) {
+        	
+        	TreeNode temp = q.poll();
+        	if(temp!=null) {
+        		tlist.add(temp.val);
+        		if(temp.left!=null) {
+        			q.add(temp.left);
+        		}
+        		if(temp.right!=null) {
+        			q.add(temp.right);
+        		}
+        	}else {
+        		res.add(new ArrayList<Integer>(tlist));
+        		q.add(null);
+        		tlist.clear();
+        	}
+        	
+        }
+        return res;
+    }
+	
 	public static List<String> binaryTreePaths(TreeNode root) {
 		if(root==null) {
 			return null;
